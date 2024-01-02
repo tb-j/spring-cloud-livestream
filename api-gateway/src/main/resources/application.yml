@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: gateway-demo
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+#      metrics:
+#        enabled: true   # default value (see /actuator/metrics/spring.cloud.gateway.requests and /actuator/metrics/spring.cloud.gateway.routes.count)
+      actuator:
+        verbose:
+          enabled: true   # see /actuator/gateway/routes
+management:
+#  endpoint:
+#    gateway:
+#      enabled: true       # default value
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"        # OR include: gateway
+  health:
+    redis:
+      enabled: false      # because redis starter is in pom... change to true to use redis rate limiting
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka
+#    fetch-registry: true
+#    register-with-eureka: true
